@@ -36,13 +36,13 @@
           <div class="space-y-6 border-t border-gray-200 px-4 py-6">
             @guest
             <div class="flow-root">
-              <a href="{{route('login')}}" class="-m-2 block p-2 font-medium text-gray-900">Connexion</a>
+              <a href="/espace-client" class="-m-2 block p-2 font-medium text-gray-900">Accéder à mon espace client</a>
             </div>
             @endguest
            
             @auth
             <div class="flow-root">
-              <a href="{{route('profile.edit')}}" class="-m-2 block p-2 font-medium text-gray-900">Mon compte</a>
+              <a href="/admin" class="-m-2 block p-2 font-medium text-gray-900">Mon compte</a>
             </div>
             @endauth
            
