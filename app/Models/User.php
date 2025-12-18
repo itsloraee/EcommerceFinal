@@ -62,44 +62,45 @@ class User extends Authenticatable
     // MÉTHODES HELPER POUR LES RÔLES
     // ==========================================
 
-    
-     /*Vérifie si l'utilisateur est un administrateur*/
-      
-      Usage : if ($user->isAdmin()) { ... }
-      
-     @return bool
-     
+    /**
+     * Vérifie si l'utilisateur est un administrateur
+     * 
+     * Usage : if ($user->isAdmin()) { ... }
+     * 
+     * @return bool
+     */
     public function isAdmin(): bool
     {
         return $this->role === UserRole::ADMIN;
     }
 
-    
-     /*Vérifie si l'utilisateur est un client*/
-      
-     Usage : if ($user->isCustomer()) { ... }
-     
-     @return bool
-     
+    /**
+     * Vérifie si l'utilisateur est un client
+     * 
+     * Usage : if ($user->isCustomer()) { ... }
+     * 
+     * @return bool
+     */
     public function isCustomer(): bool
     {
         return $this->role === UserRole::CUSTOMER;
     }
 
-    
-     /*Obtient le label du rôle en français*/
-      Usage : {{ $user->getRoleLabel() }}
-      
-     @return string
-     
+    /**
+     * Obtient le label du rôle en français
+     * 
+     * Usage : {{ $user->getRoleLabel() }}
+     * 
+     * @return string
+     */
     public function getRoleLabel(): string
     {
         return $this->role->label();
     }
 
-   
-     /*Vérifie si l'utilisateur peut accéder au panel admin*/
-     
+    /**
+     * Vérifie si l'utilisateur peut accéder au panel admin
+     */
 
     public function canAccessPanel(\Filament\Panel $panel): bool
 {
