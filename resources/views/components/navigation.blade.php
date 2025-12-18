@@ -36,13 +36,13 @@
           <div class="space-y-6 border-t border-gray-200 px-4 py-6">
             @guest
             <div class="flow-root">
-              <a href="{{route('login')}}" class="-m-2 block p-2 font-medium text-gray-900">Connexion</a>
+              <a href="/espace-client" class="-m-2 block p-2 font-medium text-gray-900">Accéder à mon espace client</a>
             </div>
             @endguest
            
             @auth
             <div class="flow-root">
-              <a href="{{route('profile.edit')}}" class="-m-2 block p-2 font-medium text-gray-900">Mon compte</a>
+              <a href="/admin" class="-m-2 block p-2 font-medium text-gray-900"></a>
             </div>
             @endauth
            
@@ -72,7 +72,7 @@
           <!-- Logo -->
           <div class="ml-4 flex lg:ml-0">
             <a href="{{route('home')}}">
-              <span class="sr-only">Pixie</span>
+              <span class="sr-only">Pixie Mart</span>
               <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto" />
             </a>
           </div>
@@ -90,11 +90,11 @@
 
               <span aria-hidden="true" class="h-6 w-px bg-gray-200"></span>
                @guest
-                <a href="{{route('login')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Connexion</a>
+                <a href="espace-client" class="text-sm font-medium text-gray-700 hover:text-gray-800">Connexion</a>
                @endguest
            
                 @auth
-                <a href="{{route('profile.edit')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Mon compte</a> 
+                <a href="/admin" class="text-sm font-medium text-gray-700 hover:text-gray-800">Mon compte</a> 
                 @endauth
               
             </div>

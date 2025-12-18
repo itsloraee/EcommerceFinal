@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Ajout du middleware de rôle
+        $middleware->alias([
+            'role=> \App\Http\Middleware\EnsureUserRole::Class,'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

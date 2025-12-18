@@ -25,15 +25,16 @@ class CustomerPanelProvider extends PanelProvider
     {
         return $panel
             ->id('customer')
-            ->path('customer')
+            ->path('espace-client')
+            ->login()
             ->colors([
-                'primary' => Color::Green,
+                'primary' => Color::Purple,
             ])
             ->brandName('Espace Client')     // Nom affiché
             ->discoverResources(in: app_path('Filament/Customer/Resources'), for: 'App\Filament\Customer\Resources')
             ->discoverPages(in: app_path('Filament/Customer/Pages'), for: 'App\Filament\Customer\Pages')
             ->pages([
-                Dashboard::class,
+                \Filament\Pages\Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Customer/Widgets'), for: 'App\Filament\Customer\Widgets')
             ->widgets([
@@ -53,6 +54,10 @@ class CustomerPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+
+             // Ajout du middle de vérification du rôle admin
+            ->authGuard('web')
+            ->authPasswordBroker('users');
     }
 }

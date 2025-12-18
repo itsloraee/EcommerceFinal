@@ -98,6 +98,24 @@ class User extends Authenticatable
         return $this->role->label();
     }
 
+    /**
+     * Vérifie si l'utilisateur peut accéder au panel admin
+     */
+
+    public function canAccessPanel(\Filament\Panel $panel): bool
+{
+    if ($panel->getId() === 'admin') {
+        return $this->role === UserRole::ADMIN;
+    }
+
+    if ($panel->getId() === 'customer') {
+        return $this->role === UserRole::CUSTOMER;
+    }
+
+    return false;
+}
+
+
     // ==========================================
     // RELATIONS ELOQUENT
     // ==========================================
