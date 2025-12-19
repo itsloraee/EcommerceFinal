@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
 
 // Page d'accueil
@@ -42,6 +43,19 @@ Route::get('/', function () {
 });
 
 */
+
+/* Test stripe */
+Route::middleware(['auth'])->group(function () {
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::get('/checkout', [CheckoutController::class, 'teststripe'])->name('teststripe');
+Route::get('/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+});
+/* Fin test stripe */
+
+
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
