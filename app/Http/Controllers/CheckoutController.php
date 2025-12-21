@@ -23,6 +23,8 @@ class CheckoutController extends Controller
     ]);
     
     }
+
+
     
     // Commande réalisée
      public function success(){
@@ -35,6 +37,30 @@ class CheckoutController extends Controller
     }
 
 /**
+ 
+
+     * Affiche la page de validation de commande
+     */
+    public function index()
+    {
+        $cart = auth()->user()->cart;
+
+        // Redirige si panier vide
+        if (!$cart || $cart->isEmpty()) {
+            return redirect()->route('cart.index')
+                ->with('error', 'Votre panier est vide.');
+        }
+
+        $cart->load(['items.product.category']);
+
+        return view('layouts.checkout.index', compact('cart'));
+    }
+
+    /** 
+     
+
+
+
      * Traite la commande
      */
     public function process(Request $request)
@@ -102,7 +128,10 @@ class CheckoutController extends Controller
             $cart->clear();
 
             DB::commit();
-             // 3. Créer la session de paiement Stripe
+            
+            
+            
+            // 3. Créer la session de paiement Stripe
         $checkout = auth()->user()->checkout([
             [
                 'price_data' => [
