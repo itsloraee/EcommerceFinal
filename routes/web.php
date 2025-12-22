@@ -54,7 +54,7 @@ Route::get('/success', [CheckoutController::class, 'success'])->name('checkout.s
 Route::get('/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
     //Validation du checkout//
-Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::post('/validation', [CheckoutController::class, 'store'])->name('checkout.store');
 });
 /* Fin test stripe */
 

@@ -36,7 +36,10 @@ class CheckoutController extends Controller
         
     }
 
-/**
+    public function store(){
+        
+    }
+    /**
  
 
      * Affiche la page de validation de commande
