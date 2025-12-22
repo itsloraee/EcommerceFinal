@@ -36,9 +36,6 @@ class CheckoutController extends Controller
         
     }
 
-    public function store(){
-        
-    }
     /**
  
 

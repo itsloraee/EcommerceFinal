@@ -48,13 +48,13 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
 
     //Affichage du checkout//
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');//
 //Route::get('/checkout', [CheckoutController::class, 'teststripe'])->name('teststripe');//
-Route::get('/success', [CheckoutController::class, 'success'])->name('checkout.success');
-Route::get('/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
     //Validation du checkout//
-Route::post('/validation', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::post('checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
 });
 /* Fin test stripe */
 

@@ -11,7 +11,7 @@
         
         <!-- Formulaire de livraison -->
         <div class="lg:col-span-2">
-            <form action="{{ route('checkout.store') }}" method="POST">
+            <form action="{{ route('checkout.process') }}" method="POST">
                 @csrf
 
                 <div class="bg-white rounded-lg shadow p-6 mb-6">
